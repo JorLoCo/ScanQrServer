@@ -2,7 +2,7 @@ import sqlite3 from 'sqlite3';
 import { open, Database } from 'sqlite';
 import { Code } from '../models/code.model';
 
-// Definimos la interfaz completa de la base de datos
+//Interfaz de la base de datos
 interface DatabaseService {
   init(): Promise<void>;
   getAllCodes(): Promise<Code[]>;
@@ -12,7 +12,7 @@ interface DatabaseService {
   close(): Promise<void>;
 }
 
-// Implementación con clase para manejar el estado interno
+//Clase para manejar el estado interno
 class DatabaseServiceImpl implements DatabaseService {
   private db: Database<sqlite3.Database, sqlite3.Statement> | null = null;
 
@@ -74,5 +74,5 @@ class DatabaseServiceImpl implements DatabaseService {
   }
 }
 
-// Exportamos una instancia única del servicio
+//Exportar instancia única del servicio
 export const db = new DatabaseServiceImpl();

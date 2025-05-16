@@ -6,20 +6,19 @@ import { db } from './services/db.service';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Inicialización asíncrona
+//Inicialización asíncrona
 const startServer = async () => {
   try {
     await db.init();
     console.log('Database initialized successfully');
     
-    // Rutas
+    //Rutas
     app.use('/codigos', codesRouter);
 
-    // Manejo de errores
+    //Manejo de errores
     app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
       console.error('Error:', err);
       res.status(500).json({ error: 'Internal server error' });

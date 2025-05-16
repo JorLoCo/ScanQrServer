@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// Exportamos la interfaz para que pueda ser usada en otros archivos
+//Exportar la interfaz para que pueda ser usada en otros archivos
 export interface ScannedCode {
   id: string;
   data: string;
